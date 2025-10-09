@@ -1,0 +1,20 @@
+﻿<Project>
+
+    <PropertyGroup>
+        <!-- Centralized SemVer; all projects will inherit it -->
+		<!-- Note: Can automate SemVer with tools like GitVersion -->
+        <Version>0.1.0</Version>
+
+        <!-- NuGet packaging -->
+        <PackageVersion>$(Version)</PackageVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+
+        <!-- Repo metadata -->
+        <Authors>Pablo Ferreira Fernández</Authors>
+        <Company>Sinch Assessment</Company>
+        <RepositoryUrl>https://github.com/mango-xp-sandbox/devex-http-sdk</RepositoryUrl>
+        <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    </PropertyGroup>
+
+</Project>
