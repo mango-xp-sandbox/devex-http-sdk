@@ -3,3 +3,4 @@
 | Task | Time Spent |
 | -- | -- |
 | Developer Experience Design Document | 45 min |
+| Canonical Models Modeling | 30 min |
