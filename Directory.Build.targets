@@ -1,0 +1,37 @@
+﻿<Project>
+
+	<PropertyGroup>
+
+        <TargetFramework>net10.0</TargetFramework>
+		<LangVersion>preview</LangVersion>
+
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+		<WarningsAsErrors></WarningsAsErrors>
+		<AnalysisLevel>latest</AnalysisLevel>
+
+		<Deterministic>true</Deterministic>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+
+		<OutputPath>$(MSBuildThisFileDirectory)artifacts\bin\$(MSBuildProjectName)\</OutputPath>
+		<IntermediateOutputPath>$(MSBuildThisFileDirectory)artifacts\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
+
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+
+	</PropertyGroup>
+
+	<!-- Package metadata-->
+	<PropertyGroup Condition="'$(IsPackable)' == 'true'">
+
+        <RepositoryType>git</RepositoryType>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+	</PropertyGroup>
+
+</Project>

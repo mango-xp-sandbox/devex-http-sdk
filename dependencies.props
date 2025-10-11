@@ -1,5 +1,7 @@
 ﻿<Project>
+
     <PropertyGroup>
         <DependencyVersion>1.0.0</DependencyVersion>
     </PropertyGroup>
+
 </Project>
