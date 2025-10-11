@@ -1,4 +1,4 @@
-# Sinch .NET SDK — Developer Experience Design Document
+# **Sinch .NET SDK — Developer Experience Design Document**
 
 ## Assessment Requirements
 

@@ -1,16 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11104.47 d18.0
+VisualStudioVersion = 18.0.11104.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10CB2937-99AD-4DCB-B506-2D12B75430EA}"
 	ProjectSection(SolutionItems) = preProject
 		dependencies.props = dependencies.props
 		Directory.Build.props = Directory.Build.props
-		Directory.Build.targets = Directory.Build.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Http.Sdk", "src\Dotnet.Http.Sdk\Dotnet.Http.Sdk.csproj", "{06E6624B-7BEB-4C0D-8802-6D76B3766A72}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06E6624B-7BEB-4C0D-8802-6D76B3766A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06E6624B-7BEB-4C0D-8802-6D76B3766A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06E6624B-7BEB-4C0D-8802-6D76B3766A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06E6624B-7BEB-4C0D-8802-6D76B3766A72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

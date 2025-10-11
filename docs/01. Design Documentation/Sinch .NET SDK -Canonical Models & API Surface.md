@@ -1,4 +1,3 @@
-
 # **Sinch SDK Assessment – Canonical Models & API Surface**
 
 ---
@@ -222,7 +221,7 @@ public sealed record MessageResponse(
 public enum MessageStatus
 {
     Queued,
-    Acknowledged,
+    Delivered,
     Failed
 }
 ```
