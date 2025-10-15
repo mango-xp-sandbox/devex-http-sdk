@@ -1,0 +1,6 @@
+@Dotnet.Http.Sdk.SmokeTestApi_HostAddress = http://localhost:5238
+
+GET {{Dotnet.Http.Sdk.SmokeTestApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

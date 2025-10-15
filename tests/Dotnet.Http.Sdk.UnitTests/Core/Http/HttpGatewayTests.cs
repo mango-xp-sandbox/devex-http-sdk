@@ -33,7 +33,7 @@
             result.Should().NotBeNull();
             result.Meta.Should().NotBeNull();
             result.Meta.RequestId.Should().Be("req-123");
-            result.Meta.TimestampUtc.Should().NotBeNullOrWhiteSpace();
+            result.Meta.ReceivedAtUtc.Should().NotBeNullOrWhiteSpace();
             result.Meta.Pagination.Should().BeNull();
             handler.Calls.Should().Be(1);
         }
@@ -90,7 +90,7 @@
             // Assert
             result.Data.Value.Should().Be("hello");
             result.Meta.RequestId.Should().Be("abc-999");
-            result.Meta.TimestampUtc.Should().NotBeNullOrWhiteSpace();
+            result.Meta.ReceivedAtUtc.Should().NotBeNullOrWhiteSpace();
             result.Meta.Pagination.Should().BeNull();
             handler.Calls.Should().Be(1);
         }

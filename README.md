@@ -20,6 +20,7 @@
 * [Configuration & DI](#configuration--di)
 * [Resiliency](#resiliency)
 * [Error Handling](#error-handling)
+* [Signature Verification (Webhook HMAC)](#signature-verification-webhook-hmac)
 * [Testing](#testing)
 * [Roadmap](#roadmap)
 * [License](#license)
@@ -233,6 +234,71 @@ catch (NotFoundException ex)
 
 ---
 
+## Signature Verification (Webhook HMAC)
+
+> Enables verifying Sinch webhook authenticity using HMAC-SHA256 signatures.
+
+When Sinch’s API server sends a webhook event, it includes an Authorization header in the format:
+
+```
+Authorization: Signature <hex_value>
+```
+
+where `<hex_value>` is computed as:
+
+```
+HMAC_SHA256(secret, body)
+```
+
+The SDK provides a ready-to-use helper to verify that signature before processing the webhook payload.
+
+### Registering the verifier
+
+```csharp
+services.AddSinchSignatureVerification(opts =>
+{
+    opts.Secret = Environment.GetEnvironmentVariable("WEBHOOK_SECRET") ?? "mySecret";
+});
+```
+
+
+This registers an injectable `ISinchSignatureVerifier` that you can use in your application or .NET controller.
+
+### Using it in a webhook controller
+
+```csharp
+[ApiController]
+[Route("webhooks")]
+[AllowAnonymous]
+public class WebhooksController : ControllerBase
+{
+    private readonly ISinchSignatureVerifier _verifier;
+    public WebhooksController(ISinchSignatureVerifier verifier) => _verifier = verifier;
+
+    [HttpPost]
+    public async Task<IActionResult> Post()
+    {
+        // Read exact raw body (important for signature match)
+        using var ms = new MemoryStream();
+        await Request.Body.CopyToAsync(ms);
+        var payload = ms.ToArray();
+
+        var header = Request.Headers["Authorization"].ToString();
+
+        if (!_verifier.Verify(header, payload))
+            return Unauthorized();
+
+        Console.WriteLine($"[WEBHOOK] {Encoding.UTF8.GetString(payload)}");
+        return Ok();
+    }
+}
+```
+
+> The verification works only if the body is read exactly as it was received.
+> This is why we copy the `Request.Body` stream into a `MemoryStream` first.
+
+---
+
 ## Testing
 
 ### Unit Tests
@@ -272,7 +338,7 @@ public async Task Create_returns_contact_with_id()
 * ✅ Contacts + Messages SDKs (MVP)
 * ✅ Typed error mapping
 * ✅ DI + Resilience
-* ❌ Webhook signature validation (future nice-to-have)
+* ✅ Webhook signature validation (future nice-to-have)
 * ❌ FluentAPI for SDK DI setup (e.g. `services.AddSinchSdk().WithBearerToken(...).WithResilience(...)`)
 * ❌ Use pagination interface marker (`IPaginatedResult<T>`) for pagination meta extraction. Also remove `PaginationOptions` class from public API surface and use simple `(int page, int size)` tuples instead.
 * ❌ Paginated helpers (`IAsyncEnumerable` support)
