@@ -15,8 +15,8 @@
         <Deterministic>true</Deterministic>
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 
-        <OutputPath>$(MSBuildThisFileDirectory)artifacts\bin\$(MSBuildProjectName)\</OutputPath>
-        <IntermediateOutputPath>$(MSBuildThisFileDirectory)artifacts\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
+        <OutputPath>$(MSBuildThisFileDirectory)build\bin\$(MSBuildProjectName)\</OutputPath>
+        <IntermediateOutputPath>$(MSBuildThisFileDirectory)build\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
 
         <DebugType>portable</DebugType>
         <DebugSymbols>true</DebugSymbols>

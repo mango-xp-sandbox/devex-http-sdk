@@ -1,9 +1,9 @@
 ﻿namespace Dotnet.Http.Sdk.Public
 {
-    public sealed record ApiMeta(
+    public sealed record SinchMeta(
         string RequestId,
         string TimestampUtc,
-        ApiPagination? Pagination = null,
+        SinchPagination? Pagination = null,
         IReadOnlyList<string>? Warnings = null
     );
 }

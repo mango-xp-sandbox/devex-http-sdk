@@ -7,9 +7,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		dependencies.props = dependencies.props
 		Directory.Build.props = Directory.Build.props
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Http.Sdk", "src\Dotnet.Http.Sdk\Dotnet.Http.Sdk.csproj", "{06E6624B-7BEB-4C0D-8802-6D76B3766A72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Http.Sdk.UnitTests", "tests\Dotnet.Http.Sdk.UnitTests\Dotnet.Http.Sdk.UnitTests.csproj", "{D790DF6E-69B3-422B-9CFA-6F5C080C3AEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Http.Sdk.IntegrationTests", "tests\Dotnet.Http.Sdk.IntegrationTests\Dotnet.Http.Sdk.IntegrationTests.csproj", "{AAADFECC-B991-4182-9BFF-76AA4738FC83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,14 @@ Global
 		{06E6624B-7BEB-4C0D-8802-6D76B3766A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06E6624B-7BEB-4C0D-8802-6D76B3766A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06E6624B-7BEB-4C0D-8802-6D76B3766A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D790DF6E-69B3-422B-9CFA-6F5C080C3AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D790DF6E-69B3-422B-9CFA-6F5C080C3AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D790DF6E-69B3-422B-9CFA-6F5C080C3AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D790DF6E-69B3-422B-9CFA-6F5C080C3AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAADFECC-B991-4182-9BFF-76AA4738FC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAADFECC-B991-4182-9BFF-76AA4738FC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAADFECC-B991-4182-9BFF-76AA4738FC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAADFECC-B991-4182-9BFF-76AA4738FC83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

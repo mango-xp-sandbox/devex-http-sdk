@@ -1,6 +1,6 @@
 ﻿namespace Dotnet.Http.Sdk.Public
 {
-    public sealed record ApiPagination(
+    public sealed record SinchPagination(
         int Page,
         int PageSize,
         long? Total = null,
