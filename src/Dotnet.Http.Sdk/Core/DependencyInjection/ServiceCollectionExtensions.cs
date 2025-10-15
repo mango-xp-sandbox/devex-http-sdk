@@ -6,12 +6,40 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Options;
     using Public;
+    using SignatureVerifier;
 
     /// <summary>
     /// Provides extension methods for registering Sinch SDK services with the dependency injection container.
     /// </summary>
     public static class ServiceCollectionExtensions
     {
+        #region Signature Verification
+
+        /// <summary>
+        /// Adds Sinch signature verification services to the dependency injection container.
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection" /> to add the services to.</param>
+        /// <param name="configure">
+        /// An optional action to configure <see cref="SignatureVerificationOptions" />.
+        /// If not provided, default options will be used.
+        /// </param>
+        /// <returns>
+        /// The original <see cref="IServiceCollection" /> instance, for chaining.
+        /// </returns>
+        public static IServiceCollection AddSinchSignatureVerification(
+            this IServiceCollection services,
+            Action<SignatureVerificationOptions>? configure = null)
+        {
+            services.AddOptions<SignatureVerificationOptions>(); // If no configuration is provided, defaults will be used.
+            if (configure is not null) services.Configure(configure);
+            services.AddSingleton<ISinchSignatureVerifier, SinchSignatureVerifier>();
+            return services;
+        }
+
+        #endregion
+
+        #region SDK
+
         /// <summary>
         /// Registers the Sinch SDK and its dependencies with the specified <see cref="IServiceCollection" />.
         /// </summary>
@@ -115,5 +143,7 @@
             services.AddTransient<IContactsApi, ContactsApi>();
             services.AddTransient<IMessagesApi, MessagesApi>();
         }
+
+        #endregion
     }
 }

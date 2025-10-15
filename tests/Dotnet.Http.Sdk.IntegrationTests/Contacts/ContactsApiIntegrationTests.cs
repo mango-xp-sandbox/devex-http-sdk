@@ -32,7 +32,7 @@
             created.Data.Id.Should().NotBeNullOrWhiteSpace();
             created.Data.Name.Should().Be(name);
             created.Data.Phone.Should().Be(phone);
-            created.Meta.TimestampUtc.Should().NotBeNullOrWhiteSpace();
+            created.Meta.ReceivedAtUtc.Should().NotBeNullOrWhiteSpace();
         }
 
         [Fact(DisplayName = "Contacts: Get returns previously created contact")]

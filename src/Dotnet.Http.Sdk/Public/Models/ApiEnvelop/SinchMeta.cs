@@ -2,7 +2,7 @@
 {
     public sealed record SinchMeta(
         string RequestId,
-        string TimestampUtc,
+        string ReceivedAtUtc,
         SinchPagination? Pagination = null,
         IReadOnlyList<string>? Warnings = null
     );

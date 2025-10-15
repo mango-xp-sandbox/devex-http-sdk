@@ -8,3 +8,5 @@
 | Testing | 90 min |
 | Readme | 30 min |
 | Final Polish | 60 min |
+| Signature Verification | 60 min |
+| Total | 555 min (9h 15 min) |

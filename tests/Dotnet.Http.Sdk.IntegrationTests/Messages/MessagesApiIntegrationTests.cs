@@ -39,7 +39,7 @@
             res.Data.From.Should().Be(from);
             res.Data.Content.Should().Be(content);
             res.Meta.RequestId.Should().NotBeNull(); // best-effort, may be empty in stub
-            res.Meta.TimestampUtc.Should().NotBeNullOrWhiteSpace();
+            res.Meta.ReceivedAtUtc.Should().NotBeNullOrWhiteSpace();
         }
 
         [Fact(DisplayName = "Messages: Get returns a previously created message")]
@@ -82,7 +82,7 @@
             var created = await _api.SendAsync(mockUser.Id, from, content, CancellationToken.None);
 
             // Act
-            var page = await _api.GetPagedAsync(); // defaults (page=0, limit/size=50 depending on your API)
+            var page = await _api.GetPagedAsync(new PaginationOptions(0, 100)); // defaults (page=0, limit/size=50 depending on your API)
 
             // Assert
             page.Should().NotBeNull();
@@ -94,7 +94,7 @@
 
             page.Meta.Pagination.Should().NotBeNull();
             page.Meta.Pagination!.Page.Should().Be(0); // default sanes in the stub
-            page.Meta.Pagination.PageSize.Should().Be(50); // default sane in the stub
+            page.Meta.Pagination.PageSize.Should().Be(100); // default sane in the stub
         }
 
         [Fact(DisplayName = "Messages: Unauthorized when token is missing")]
