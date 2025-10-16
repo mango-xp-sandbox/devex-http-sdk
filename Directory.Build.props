@@ -37,7 +37,7 @@
 	<PropertyGroup>
         <!-- Centralized SemVer; all projects will inherit it -->
 		<!-- Note: Can automate SemVer with tools like GitVersion -->
-        <Version>0.1.0</Version>
+        <Version>0.2.0</Version>
 
         <!-- NuGet packaging -->
         <PackageVersion>$(Version)</PackageVersion>
